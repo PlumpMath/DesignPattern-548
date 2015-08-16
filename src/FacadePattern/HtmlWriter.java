@@ -20,6 +20,7 @@ public class HtmlWriter {
     public void title(String title) throws IOException {    
         writer.write("<html>");
         writer.write("<head>");
+     
         writer.write("<title>" + title + "</title>");
         writer.write("</head>");
         writer.write("<body>\n");
