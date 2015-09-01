@@ -1,36 +1,23 @@
 /**
  * 파일명 : Main.java
- * 작성일 : 2015. 8. 14.
+ * 작성일 : 2015. 8. 31.
  * 파일설명 : 
  */
 package DecoratorPattern;
 
 /**
  * @author 임승한(lim_designer@naver.com)
- *
  */
 public class Main {
-    public static void main(String[] args) {
-        Display b1 = new StringDisplay("Hello, world.");
-        Display b2 = new SideBorder(b1, '#');
-        Display b3 = new FullBorder(b2);
-        b1.show();
-        b2.show();
-        b3.show();
-        Display b4 = 
-                    new SideBorder(
-                        new FullBorder(
-                            new FullBorder(
-                                new SideBorder(
-                                    new FullBorder(
-                                        new StringDisplay("안녕하세요.")
-                                    ),
-                                    '*'
-                                )
-                            )
-                        ),
-                        '/'
-                    );
-        b4.show();
-    }
+	public static void main(String[] args) {
+		데코레이터 꾸미는사람 = new 데코레이터();
+		System.out.println(꾸미는사람.get효과음());
+		
+		데코레이터 더꾸미는사람 = new Child데코레이터(꾸미는사람);
+		System.out.println(더꾸미는사람.get효과음());
+		
+		데코레이터 더더꾸미는사람 = new Child데코레이터(더꾸미는사람);
+		System.out.println(더더꾸미는사람.get효과음());
+	}
+
 }

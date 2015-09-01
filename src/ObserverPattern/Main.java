@@ -1,28 +1,33 @@
 /**
  * 파일명 : Main.java
- * 작성일 : 2015. 8. 14.
- * 파일설명 : 동작 테스트 클래스
+ * 작성일 : 2015. 9. 1.
+ * 파일설명 : 
  */
 package ObserverPattern;
 
 /**
  * @author 임승한(lim_designer@naver.com)
  */
-
-// Main 클래스에서는 RandornNumberGenerator의 인스턴스를 한 개 만들고,
-// 그 관찰자를 두 개 만든다.
 public class Main {
 	public static void main(String[] args) {
+		Watcher watcher = new Watcher();
+		Employee pc01 = new Employee("만화책보는 놈");
+		Employee pc02 = new Employee("퍼질러 자는 놈");
+		Employee pc03 = new Employee("포카치는 놈");
 		
-		NumberGenerator generator = new RandomNumberGenerator();
-		/*
-		observer1은 DigitObserver, observer2는 GraphObserver의 인스턴스 addObserver 메서드를 사용해서 관찰자를 등록한 후 
-		generator. execute를 시용해서 수를 생성.
-		 */
-		Observer observer1 = new DigitObserver();
-		Observer observer2 = new GraphObserver();
-		generator.addObserver(observer1);
-		generator.addObserver (observer2);
-		generator.execute();
+		// spy는 pc03을 보고있음
+		// 요놈은 꼰질르기의 대가
+		Spy spy = new Spy(pc03);
+		
+		watcher.addObserver(pc01);
+		watcher.addObserver(pc02);
+		watcher.addObserver(pc03);
+		watcher.addObserver(spy);
+		
+		watcher.action("사장 뜸");
+		watcher.deleteObserver(pc03);
+		watcher.deleteObserver(spy);
+		
+		watcher.action("사장 뜸");
 	}
 }
