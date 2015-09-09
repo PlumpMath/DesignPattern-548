@@ -16,6 +16,8 @@ public class Singleton {
 	// new Singleton() 이라는 식이 클래스 외부에 있다고 하더라도 컴파일 시 에러발생
 	// Singleton 패턴은 프로그래머가 실수해도 인스턴스가 1개만 생성되도록 하는 패턴이다.
 	// 이것을 보증하기 위해서 생성자를 private로 해둘 필요가 있음.
+	
+	// private으로 생성자를 만들면 new로 생성 못함
 	private Singleton() {
 		System.out.println("인스턴스 생성");
 	}

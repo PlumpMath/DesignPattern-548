@@ -18,9 +18,10 @@ public class 동물공장 {
 			return new 소();
 		} else if(동물이름.equals("고양이")) {
 			return new 고양이();
-		} else if(동물이름.equals("개")) {
+		} else if("개".equals(동물이름)) {
 			return new 개();
-		} else {
+		}
+		else {
 			return null;
 		}
 	}
